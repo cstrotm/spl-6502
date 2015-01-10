@@ -1,0 +1,25 @@
+#  Test 10
+var buf 10
+var ref 1
+
+def where
+  ref c@ ftell if
+    "ftell #" disp .2$ cr
+  else
+    "position " disp d. cr
+  then
+end
+
+
+def main
+  "ttt" count 0 fopen if
+    "fopen #" .2$ cr
+    return
+  then ref c!
+  where
+  buf 3 ref c@ fread if
+    "fread #" .2$ cr
+  then
+  where
+end
+

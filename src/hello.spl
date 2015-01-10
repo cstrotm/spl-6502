@@ -1,0 +1,6 @@
+#
+#  Hello world
+#
+def main
+  "Hello world!" disp cr
+end

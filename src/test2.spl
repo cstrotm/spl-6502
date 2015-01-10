@@ -1,0 +1,58 @@
+#
+#  SPL test 2
+#
+var ref   1
+var buf  10
+var i     2
+
+def main
+  #  open the file
+  "ttt" count 0 fopen if
+    "fopen #" disp .2$ cr
+    return
+  else  ref c!  then
+
+  #  read some data
+  buf 10 0 fill
+  buf 9 ref c@ fread if
+    "fread #" disp .2$ cr
+  else
+    drop buf disp cr
+  then 
+
+  #  close the file
+  ref c@ fclose if
+    "fclose #" disp .2$ cr
+  then
+
+  #  open the file again
+  "ttt" count 0 fopen if
+    "fopen #" disp .2$ cr
+    return
+  else  ref c!  then
+
+  #  write some data
+  "abcd" 4 ref c@ fwrite if
+    "fwrite #" disp .2$ cr
+  then drop
+
+  ref c@ fclose if drop then
+  "ttt" count 0 fopen drop ref c!
+  buf 9 ref c@ fread 2drop
+  buf disp cr
+  ref c@ fclose if drop then
+
+  #  Open the file and read it character by character
+  "ttt" count 0 fopen drop ref c!
+  0 i !
+  {
+    ref c@ fgetc if
+      break
+    then  emit
+  }
+
+  ref c@ fclose if drop then
+end
+
+
+

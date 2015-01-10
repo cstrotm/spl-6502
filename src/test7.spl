@@ -1,0 +1,49 @@
+#
+#  Test 7
+#
+var buf  512
+var i      2
+var blk    2
+
+def main
+  {
+    #  Get the block number
+    "Enter the block number: " disp
+    buf accept drop  buf number blk !
+
+    #  Quit if block number <0
+    blk @ 0 < if  break  then
+
+    #  Read the block, drive 2
+    buf blk @ 0b11100000 read_block if
+      "read_block1 #" disp .2$ cr
+      return
+    then
+
+    #  Set the block data
+    buf 512 0xfe fill
+
+    #  Write the block data
+    buf blk @ 0b11100000 write_block if
+      "write_block #" disp .2$ cr
+      return
+    then
+
+    #  Read the block again
+    buf blk @ 0b11100000 read_block if
+      "read_block2 #" disp .2$ cr
+      return
+    then
+    
+    #  Display block 
+    cr "Block #" disp blk @ . 
+    ":" disp cr
+    0 dup i !
+    {
+      512 = if break then
+      i @ buf + c@ .2$
+      i @ 1+ dup i !
+    }
+    cr cr
+  }
+end

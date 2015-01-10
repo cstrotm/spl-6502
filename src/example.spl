@@ -1,0 +1,17 @@
+str hallo "Hallo Welt"
+
+   : hallofujiama
+         "Willkommen in Lengenfeld" disp
+   ;
+
+code black
+[    lda #0   ]
+[    sta 710  ]
+[    rts      ]
+end
+
+  : main 
+    black 
+    hallo disp
+    hallofujiama
+  ;

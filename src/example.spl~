@@ -1,0 +1,10 @@
+str hallo "Hallo Welt"
+
+   : hallofujiama
+         "Willkommen in Lengenfeld" disp
+   ;
+
+  : main 
+    hallo disp
+    hallofujiama
+  ;

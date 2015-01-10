@@ -1,0 +1,28 @@
+# Test 12
+var ref  1
+
+def main
+  #  rename ttt qqq
+  "ttt" count   #  source
+  "qqq" count   #  new
+  rename if
+    "rename #" disp .2$ cr
+  then
+
+  #  open qqq
+  "qqq" count 0 fopen if
+    "fopen #" disp .2$ cr
+    return
+  then
+
+  dup fflush if
+    "fflush #" disp .2$ cr
+    return
+  then
+
+  #  display the EOF position
+  feof if
+    "feof #" disp .2$ cr
+  then
+  "EOF at " disp d. cr
+end

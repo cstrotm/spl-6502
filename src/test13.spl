@@ -1,0 +1,21 @@
+# Test 13
+var adr 2
+
+def main
+  #  Get the file info
+  "ttt" count finfo@ if
+    "finfo@ #" disp .2$ cr
+    return
+  then  adr !
+ 
+  #  Display it
+  "Access code       : " disp adr @ c@ .2$ cr
+  "File type code    : " disp adr @ 1+ c@ .2$ cr
+  "Aux type code     : " disp adr @ 2+ @ .$ cr
+  "Storage type code : " disp adr @ 4 + c@ .2$ cr
+  "Blocks used       : " disp adr @ 5 + @ .$ cr
+  "Modification date : " disp adr @ 7 + @ .$ cr
+  "Modification time : " disp adr @ 9 + @ .$ cr
+  "Creation date     : " disp adr @ 11 + @ .$ cr
+  "Creation time     : " disp adr @ 13 + @ .$ cr
+end

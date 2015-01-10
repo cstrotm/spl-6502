@@ -1,0 +1,65 @@
+#
+#  Display a disk block 
+#
+var buf  512
+var i      2
+var blk    2
+var drv    1
+
+
+#-------------------------------------
+#  getSlotDrive ( -- )
+#
+#  Set the slot and drive
+#
+def getSlotDrive
+  #  Get the slot number, shift up 4 bits
+  "Slot: " disp buf accept 
+  0 = if 6 else buf number then
+  0xff b.and 4 <<
+
+  #  Get the drive number, shift up 7 bits
+  "Drive: " disp buf accept
+  0 = if 0 else 
+    buf number 2 = 
+  then  7 <<
+  
+  #  Combine the slot and drive
+  b.or drv c!
+end
+
+
+#-------------------------------------
+#  main ( -- )
+#
+#  Dump the given block number
+#
+def main
+  {
+    #  Get the block number
+    cls  "Enter the block number (-1 to exit): " disp
+    buf accept drop  buf number blk !
+
+    #  Quit if block number <0
+    blk @ 0 < if  break  then
+
+    #  Get the slot and drive
+    getSlotDrive
+
+    #  Read the block
+    buf blk @ drv c@ read_block if
+      "read_block #" disp .2$ cr
+    then
+
+    #  Display block 
+    cls "Block #" disp blk @ . 
+    ":" disp cr
+    0 dup i !
+    {
+      512 = ?break
+      i @ buf + c@ .2$
+      i @ 1+ dup i !
+    }
+    cr cr key drop
+  }
+end

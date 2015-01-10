@@ -1,0 +1,29 @@
+#
+#  SPL test 3
+#
+var ref   1
+
+def main
+  #  open the file
+  "/qq/calc.bas" count 0 fopen if
+    "fopen #" disp .2$ cr
+    return
+  else  ref c!  then
+
+  #  read it character by character
+  {
+    ref c@ fgetc if
+      "fgetc #" disp .2$ cr
+      break
+    then  emit
+  }
+
+  #  close the file
+  ref c@ fclose if
+    dup 0x4c <> if
+      "fclose #" disp .2$ cr
+    else drop then
+  then
+end
+
+

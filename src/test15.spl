@@ -1,0 +1,9 @@
+#  Test 15
+var b 11
+
+def main
+  b 11 0 fill
+  b "ttt" count finfo! if
+    "finfo! #" disp .2$ cr
+  then
+end

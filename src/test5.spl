@@ -1,0 +1,15 @@
+#
+#  SPL test 5
+#
+var ref   1
+var buf  10
+var i     2
+
+def main
+  #  delete a file
+  "ttt" count fdestroy if
+    "fdestroy #" disp .2$ cr
+  then
+end
+
+

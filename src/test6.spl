@@ -1,0 +1,14 @@
+#  Create a file
+
+def main
+  "abcd" count 4 0 fcreate if
+    "fcreate #" disp .2$ cr
+  then
+  "abc" count 6 0x901 fcreate if
+    "fcreate #" disp .2$ cr
+  then
+  "qqq" count 0xfb 0xffff fcreate if
+    "fcreate #" disp .2$ cr
+  then
+end
+

@@ -1,0 +1,12 @@
+var i 2
+
+: within
+  over - i ! - i @ u<
+;
+
+: main
+  "WITHIN test" disp cr
+  {
+    key dup . $31 $39 within 0 = 0if "is within" else "is not within" then disp " $31 and $39" cr
+  }
+;

@@ -1,0 +1,11 @@
+# sp@ test
+
+: main 
+  "should be 3:" disp 1 2 3 sp@ . cr
+  drop "should be 2:" disp  sp@ . cr
+  5 6  "should be 4:" disp  sp@ . cr
+  drop drop drop drop
+  "should be 0:" sp@ . cr
+  key drop
+;
+ 

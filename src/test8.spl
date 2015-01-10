@@ -1,0 +1,9 @@
+#  Test 8
+var buf 65
+
+def main
+  buf getcwd
+  "Prefix: " disp
+  buf uncount disp cr
+end
+

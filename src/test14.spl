@@ -1,0 +1,17 @@
+#  Test 14
+def print
+  dup 10 < if 48 emit then .
+end
+
+def main
+  #  Display the time
+  time swap
+  print
+  ":" disp
+  print space
+
+  #  And the date
+  date swap
+  print "/" disp swap print "/" disp print
+  cr
+end

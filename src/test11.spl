@@ -1,0 +1,19 @@
+#  Test 11
+var buf 10
+var ref 1
+
+def main
+  "ttt" count 0 fopen if
+    "fopen #" .2$ cr
+    return
+  then ref c!
+  buf 10 0 fill
+  3 0 ref c@ fseek if
+    "fseek #" .2$ cr
+  then
+  buf 3 ref c@ fread if
+    "fread #" .2$ cr
+  then
+  buf disp cr
+end
+

@@ -1,0 +1,6 @@
+: main
+  "UWITHIN test" disp
+  {
+    key dup . $31 $39 uwithin 0 = 0if "is within" else "is not within" then disp " $31 and $39" cr
+  }
+;

@@ -1,0 +1,15 @@
+var buf 65
+
+def main
+  "/qq/" count setcwd if
+    "setcwd #" disp .2$ cr
+     return
+  then
+  buf 65 0 fill
+  buf getcwd if
+    "getcwd #" disp .2$ cr
+    return
+  then
+  buf uncount disp cr
+end
+

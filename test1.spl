@@ -1,0 +1,28 @@
+#
+#  Hello world
+#
+
+str a "a"
+var i 2
+
+: sqr ( n  n -- n )
+  * 
+;
+
+: loop ( n -- )
+    0 i !
+    {
+	i @ . cr
+	i @ 1+ dup i !
+	100 > break
+    }
+;
+
+: main ( main procedure )
+  cr cr
+  "Hello world!" disp cr
+  $F0 %01000001 sqr .
+    loop 
+    cr cr cr
+    { } ( endless loop )
+;

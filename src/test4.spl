@@ -1,0 +1,32 @@
+#
+#  SPL test 4
+#
+var ref   1
+var abc   1
+
+def main
+  #  open the file
+  "ttt" count 0 fopen if
+    "fopen #" disp .2$ cr
+    return
+  else  ref c!  then
+
+  #  write some data
+  65 abc c!
+  {
+    abc c@ ref c@ fputc if
+      "fputc #" disp .2$ cr
+      abc c@ . cr
+      return
+    then
+    abc c@ 1+ dup abc c!
+    90 > ?break
+  }
+
+  #  close the file
+  ref c@ fclose if
+    "fclose #" disp .2$ cr
+  then
+end
+
+

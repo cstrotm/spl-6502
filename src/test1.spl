@@ -1,0 +1,24 @@
+#
+#  SPL test 1
+#
+var i 2                     #  short i;
+                            #
+def hi                      #  void hi() {
+  "Hello world!" disp cr    #    printf("Hello world!\n");
+end                         #  }
+                            #
+def goodbye                 #  void goodbye() {
+  "Goodbye world!" disp cr  #    printf("Goodbye world!\n");
+end                         #  }
+                            #
+def main                    #  void main() {
+  cls                       #    cls();
+  hi                        #    hi();
+  0 i !                     #    i = 0;
+  {                         #    while (i != 10)
+    i @ 10 = ?break         #    {
+    i @ . cr                #      printf("%d\n", i);
+    i @ 1+ i !              #      i++;
+  }                         #    }
+  goodbye                   #    goodbye();
+end                         #  }
