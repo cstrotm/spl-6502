@@ -17,7 +17,7 @@ import time
 from types import *
 
 #  Modification date
-LAST_MOD = "22-Aug-2014"
+LAST_MOD = "03-Aug-2015"
 
 
 #-----------------------------------------------------------------------
@@ -47,7 +47,7 @@ BASE_NAME = "out"
 BASE_TYPE = "bin"
 
 #  Compiler version number
-VERSION = "1.0atari"
+VERSION = "1.1atari"
 
 #  Header for assembly output files, must be a list of strings
 HEADER = [
@@ -79,6 +79,10 @@ EQUATES = {
     "tmp"    : 0x9A,    #  scratch (4 bytes)
     "sign"   : 0x9F,    #  sign (1 byte)
     "outbuf" : 0xA0,    #  output text buffer (12 bytes)
+    "areg"   : 0xB0,    #  A register (2 byte)
+    "breg"   : 0xB2,    #  B register (2 byte)
+    "xreg"   : 0xB4,    #  X register (2 byte)
+    "yreg"   : 0xB6,    #  Y register (2 byte)
     "inbuf"  : 0x400	#  input text buffer
 }
 
@@ -180,6 +184,12 @@ DEPENDENCIES = {
     "fdestroy" : ["pop","push"],
     "feof"     : ["pop","push"],
     "fetchend" : ["push"],
+    "fetchinda": ["push"],
+    "fetchindadec": ["push"],
+    "fetchindainc": ["push"],
+    "fetchindb": ["push"],
+    "fetchindbdec": ["push"],
+    "fetchindbinc": ["push"],
     "fflush"   : ["pop","push"],
     "fgetc"    : ["pop","push"],
     "fread"    : ["pop","push"],
@@ -296,6 +306,24 @@ DEPENDENCIES = {
 #  Mapping between library words and assembly labels.
 #
 LIBRARYMAP = {
+    ">a"       : "toareg",
+    "a>"       : "fromareg",
+    "a!"       : "storeinda",
+    "a@"       : "fetchinda",
+    "a@+"      : "fetchindainc",
+    "a@-"      : "fetchindadec",
+    "a!+"      : "storeindainc",
+    ">b"       : "tobreg",
+    "b>"       : "frombreg",
+    "b!"       : "storeindb",
+    "b@"       : "fetchindb",
+    "b@+"      : "fetchindbinc",
+    "b@-"      : "fetchindbdec",
+    "b!+"      : "storeindbinc",
+    ">x"       : "toxreg",
+    "x>"       : "fromxreg",
+    ">y"       : "toyreg",
+    "y>"       : "fromyreg",
     "abs"      : "abs",      
     "accept"   : "accept",  
     "+"        : "add",  
