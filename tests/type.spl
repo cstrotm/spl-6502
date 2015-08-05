@@ -1,0 +1,6 @@
+# test of type command
+
+: main
+  "test of type command" count type
+  { }
+;

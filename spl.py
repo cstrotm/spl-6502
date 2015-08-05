@@ -2,7 +2,7 @@
 #
 #  SPL compiler
 #  RTK, 03-Sep-2007
-#  Last update:  22-Aug-2014
+#  Last update:  05-Aug-2015
 #
 #  $Id$
 #
@@ -17,7 +17,7 @@ import time
 from types import *
 
 #  Modification date
-LAST_MOD = "03-Aug-2015"
+LAST_MOD = "05-Aug-2015"
 
 
 #-----------------------------------------------------------------------
@@ -58,14 +58,14 @@ HEADER = [
 ]
 
 #  Code start and stack location in RAM
-ORG   = 0x2200
+ORG   = 0x2400
 
 #  Start of variable space, grows downwards
 VARTOP= 0x8000  #  doesn't clobber the ProDOS BASIC interpreter
 
 #  Library equates - case matters
 EQUATES = {
-    "stack"  : ORG,   #  stack address
+    "stack"  : ORG-512,   #  stack address
     "sp"     : 0x80,    #  stack pointer
     "ex"     : 0x81,    #  xreg value
     "ey"     : 0x82,    #  yreg value
@@ -98,6 +98,7 @@ DEPENDENCIES = {
     "add1"     : [],
     "add"      : ["get_tb","pop","push"],
     "addstore" : ["get_ab"],
+    "ampdot"   : ["get_ta","get_op1"],
     "and"      : ["get_ab","push"],
     "booland"  : ["get_ab","push"],
     "areg"     : ["pop"],
@@ -123,7 +124,7 @@ DEPENDENCIES = {
     "comp_ta"  : [],
     "comp_tb"  : [],
     "copy"     : [],
-    "count"    : ["get_ta", "push"],
+    "count"    : ["get_tb", "push", "plus1"],
     "cprhex"   : [],
     "cr"       : [],
     "crson"    : [],
@@ -275,6 +276,7 @@ DEPENDENCIES = {
     "swap"     : ["get_ta","get_tb","push"],
     "time"     : ["push"],
     "to_r"     : ["pop"],
+    "type"     : ["get_ta","get_tb","chout","udiv16","push"],
     "from_r"   : ["push"],
     "r_fetch"  : ["to_r", "from_r", "dup"],
     "tooutbuf" : ["u_str"],
@@ -330,6 +332,7 @@ LIBRARYMAP = {
     "++"       : "incaddr",    
     "c++"      : "inccaddr",
     "+!"       : "addstore", 
+    "&."       : "ampdot",
     "areg"     : "areg",  
     "at"       : "pos",
     "@"        : "fetch",     
@@ -447,6 +450,7 @@ LIBRARYMAP = {
     "strmatch" : "strmatch", 
     "strpos"   : "strpos",   
     "time"     : "time",
+    "type"     : "type",
     "-"        : "sub",      
     "--"       : "decaddr",
     "c--"      : "deccaddr",

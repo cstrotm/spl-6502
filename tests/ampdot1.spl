@@ -1,0 +1,15 @@
+# test for &. ( ampdot ), convert 32bit number
+# into memory location
+
+: main
+ "ampdot test" disp cr
+ $600 0 0 &.     $600 8 type cr
+ $600 0 1 &.     $600 8 type cr
+ $600 0 1024 &.  $600 8 type cr
+ $600 1 0 &.     $600 8 type cr
+ $600 2 0 &.     $600 8 type cr
+ $600 100 0 &.   $600 8 type cr
+ $600 65535 0 &. $600 8 type cr
+ $600 $FF $FF &. $600 8 type cr
+ { }
+;

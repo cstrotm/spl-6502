@@ -6,10 +6,11 @@
 ;  is the length in character of the string in c-addr2.
 ;
 count 
-    jsr get_ta          ;  get address of c-addr1
+    jsr get_tb          ;  get address of c-addr1
+    jsr push
     jsr plus1		;  add TOS by 1
     ldy #0
-    lda (ta),y		; get count byte
+    lda (tb),y		; get count byte
     jmp push0a		; push to stack
 
 
