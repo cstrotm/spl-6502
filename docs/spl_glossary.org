@@ -1,0 +1,91 @@
+#+Title: SPL Glossary
+#+Language: en
+
+* A and B registers
+
+implemented based on "Updating the Forth Virtual Machine" by Stephen
+Pelc, MicroProcessor Engineering
+http://www.complang.tuwien.ac.at/anton/euroforth/ef08/papers/pelc.pdf
+
+The A and B registers provide the source and destination address
+pointers used for block and string operations as well as providing
+scratch storage.
+
+** >A  \ x --
+Writes to the A register.
+
+** >B  \ x --
+Writes to the B register.
+
+** A>  \ -- x
+Reads the A register.
+
+** B>  \ -- x
+Reads the B register.
+
+** A@  \ -- x
+Read the memory pointed to by the A register.
+
+** A!  \ x --
+Write the memory pointed to by the A register
+
+** B@  \ -- x
+Read the memory pointed to by the B register.
+
+** B!  \ x --
+Write the memory pointed to by the B register
+
+** A@+  \ -- x
+Read memory pointed to by A, increment A by one cell. A
+post-incremented read.
+
+** B@+  \ -- x
+Read memory pointed to by B, increment B by one cell. A
+post-incremented read.
+
+** A@-  \ -- x
+Read memory pointed to by A, decrement A by one cell. A
+post-decremented read.
+
+** B@-  \ -- x
+Read memory pointed to by B, decrement B by one cell. A
+post-decremented read.
+
+** A!+  \ x --
+Write to the memory pointed to by A, and update A.
+
+** B!+  \ x --
+Write to the memory pointed to by B, and update B.
+
+** X and Y registers.
+
+The X and Y registers provide indexed addressing. In Forth they can be
+used to implement the USER area and local frame pointers.
+
+** >X  \ x --
+Writes to the X register.
+
+** >Y  \ x --
+Writes to the Y register.
+
+** X>  \ -- x
+Reads the X register.
+
+** Y>  \ -- x
+Reads the Y register.
+
+** nX@  \ n -- x (currently not implemented in SPL)
+Read the memory pointed to by the X register plus n (literal) address
+units.
+
+** nX!  \ x -- (currently not implemented in SPL)
+Write the memory pointed to by the X register plus n (literal) address
+units.
+
+** nY@  \ -- x (currently not implemented in SPL)
+Read the memory pointed to by the Y register plus n (literal) address
+units.
+
+** nY!  \ x -- (currently not implemented in SPL)
+Write the memory pointed to by the Y register plus n (literal) address
+units
