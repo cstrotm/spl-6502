@@ -57,7 +57,8 @@ Write to the memory pointed to by A, and update A.
 ** B!+  \ x --
 Write to the memory pointed to by B, and update B.
 
-** X and Y registers.
+
+* X and Y registers.
 
 The X and Y registers provide indexed addressing. In Forth they can be
 used to implement the USER area and local frame pointers.
@@ -89,3 +90,27 @@ units.
 ** nY!  \ x -- (currently not implemented in SPL)
 Write the memory pointed to by the Y register plus n (literal) address
 units
+
+* Arithmetics
+
+** abs  \ n -- n'
+return the absolute value of the top of stack (TOS)
+
+* Strings
+
+** 0trim \ addr len --
+trim leading zeroes from string at addr and make it an counted string
+in PAD
+
+** accept  \ addr -- len (Apple II specific)
+get a line of text in the input buffer
+
+** add  \ a b -- a+b
+add the top of stack with next of stack
+
+** add1 \ (internal)
+add 1 to the value in TA
+
+** +! (addstore) \ addr b --
+add b to the value pointed to be addr
+
