@@ -90,6 +90,21 @@ units.
 Write the memory pointed to by the Y register plus n (literal) address
 units
 
+* 6502 subroutine calls
+** areg  \ 8b --
+store the low 8bit from top of stack into ea (6502 A-Reg for "call"
+subroutine call
+* bit manipulation
+** and  \ a b -- n
+bitwise AND of the two topmost stack items
+** or   \ a b -- n
+bitwise OR of the two topmost stack items
+** xor  \ a b -- n
+bitwise XOR (exclusive OR) of the two topmost stack items
+** bclr \ n b -- n'
+clear bit b of n
+* Boolean logic
+
 * Arithmetics
 ** abs  \ n -- n'
 return the absolute value of the top of stack (TOS)
@@ -103,6 +118,12 @@ add 1 to the value in TA
 ** +! (addstore) \ addr b --
 add b to the value pointed to be addr
 
+** ++ (incaddr)  \ addr --
+increment 16bit word at addr by 1
+** c++ (inccaddr) \ addr --
+increment 8bit value at addr by 1
+
+
 * Strings
 ** 0trim \ addr len --
 trim leading zeroes from string at addr and make it an counted string
@@ -114,4 +135,11 @@ get a line of text in the input buffer
 **  &. (ampdot)  \ addr d --
 convert 32bit number d into ASCII at addr addr must be at least 10
 bytes
+* Memory
+** @ (fetch)  \ addr -- n
+fetch 16bit value at addr onto top of stack
+
+* Input/Output
+** at  \ y x -- 
+position cursor at location x and y
 
