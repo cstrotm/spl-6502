@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>SPL Glossary</title>
+<!-- 2015-08-06 Thu 22:59 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Carsten Strotmann" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">SPL Glossary</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. A and B registers</a>
+<ul>
+<li><a href="#sec-1-1">1.1. &gt;A  \ x --</a></li>
+<li><a href="#sec-1-2">1.2. &gt;B  \ x --</a></li>
+<li><a href="#sec-1-3">1.3. A&gt;  \ &#x2013; x</a></li>
+<li><a href="#sec-1-4">1.4. B&gt;  \ &#x2013; x</a></li>
+<li><a href="#sec-1-5">1.5. A@  \ &#x2013; x</a></li>
+<li><a href="#sec-1-6">1.6. A!  \ x --</a></li>
+<li><a href="#sec-1-7">1.7. B@  \ &#x2013; x</a></li>
+<li><a href="#sec-1-8">1.8. B!  \ x --</a></li>
+<li><a href="#sec-1-9">1.9. A@+  \ &#x2013; x</a></li>
+<li><a href="#sec-1-10">1.10. B@+  \ &#x2013; x</a></li>
+<li><a href="#sec-1-11">1.11. A@-  \ &#x2013; x</a></li>
+<li><a href="#sec-1-12">1.12. B@-  \ &#x2013; x</a></li>
+<li><a href="#sec-1-13">1.13. A!+  \ x --</a></li>
+<li><a href="#sec-1-14">1.14. B!+  \ x --</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. X and Y registers.</a>
+<ul>
+<li><a href="#sec-2-1">2.1. &gt;X  \ x --</a></li>
+<li><a href="#sec-2-2">2.2. &gt;Y  \ x --</a></li>
+<li><a href="#sec-2-3">2.3. X&gt;  \ &#x2013; x</a></li>
+<li><a href="#sec-2-4">2.4. Y&gt;  \ &#x2013; x</a></li>
+<li><a href="#sec-2-5">2.5. nX@  \ n &#x2013; x (currently not implemented in SPL)</a></li>
+<li><a href="#sec-2-6">2.6. nX!  \ x &#x2013; (currently not implemented in SPL)</a></li>
+<li><a href="#sec-2-7">2.7. nY@  \ &#x2013; x (currently not implemented in SPL)</a></li>
+<li><a href="#sec-2-8">2.8. nY!  \ x &#x2013; (currently not implemented in SPL)</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. 6502 subroutine calls</a>
+<ul>
+<li><a href="#sec-3-1">3.1. areg  \ 8b --</a></li>
+<li><a href="#sec-3-2">3.2. call \ addr --</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4. bit manipulation</a>
+<ul>
+<li><a href="#sec-4-1">4.1. and  \ a b &#x2013; n</a></li>
+<li><a href="#sec-4-2">4.2. or   \ a b &#x2013; n</a></li>
+<li><a href="#sec-4-3">4.3. xor  \ a b &#x2013; n</a></li>
+<li><a href="#sec-4-4">4.4. bclr \ n b &#x2013; n'</a></li>
+<li><a href="#sec-4-5">4.5. bset  \ n b &#x2013; n'</a></li>
+<li><a href="#sec-4-6">4.6. btest  \ n b &#x2013; 0|1</a></li>
+<li><a href="#sec-4-7">4.7. ~ (comp) \ n - n'</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5. Boolean logic</a></li>
+<li><a href="#sec-6">6. Arithmetics</a>
+<ul>
+<li><a href="#sec-6-1">6.1. abs  \ n &#x2013; n'</a></li>
+<li><a href="#sec-6-2">6.2. add  \ a b &#x2013; a+b</a></li>
+<li><a href="#sec-6-3">6.3. add1 \ (internal)</a></li>
+<li><a href="#sec-6-4">6.4. +! (addstore) \ addr b --</a></li>
+<li><a href="#sec-6-5">6.5. ++ (incaddr)  \ addr --</a></li>
+<li><a href="#sec-6-6">6.6. c++ (inccaddr) \ addr --</a></li>
+</ul>
+</li>
+<li><a href="#sec-7">7. Strings</a>
+<ul>
+<li><a href="#sec-7-1">7.1. 0trim \ addr len --</a></li>
+<li><a href="#sec-7-2">7.2. accept  \ addr &#x2013; len (Apple II specific)</a></li>
+<li><a href="#sec-7-3">7.3. &amp;. (ampdot)  \ addr d --</a></li>
+<li><a href="#sec-7-4">7.4. tooutbuf \ n --</a></li>
+<li><a href="#sec-7-5">7.5. count  \ c-addr1 &#x2013; caddr2 u</a></li>
+</ul>
+</li>
+<li><a href="#sec-8">8. Memory</a>
+<ul>
+<li><a href="#sec-8-1">8.1. @ (fetch)  \ addr &#x2013; n</a></li>
+<li><a href="#sec-8-2">8.2. d@ (double-fetch) \ addr &#x2013; d</a></li>
+<li><a href="#sec-8-3">8.3. c@ (char-fetch) \ addr &#x2013; c</a></li>
+<li><a href="#sec-8-4">8.4. cmove  \   a b n --</a></li>
+<li><a href="#sec-8-5">8.5. cmove&gt; \ a b n --</a></li>
+</ul>
+</li>
+<li><a href="#sec-9">9. Input/Output</a>
+<ul>
+<li><a href="#sec-9-1">9.1. at  \ y x --</a></li>
+<li><a href="#sec-9-2">9.2. ch  \ n &#x2013; (Atari specific)</a></li>
+<li><a href="#sec-9-3">9.3. cls \ &#x2013;  (Atari specific)</a></li>
+<li><a href="#sec-9-4">9.4. cr \ &#x2013;  (Atari specific)</a></li>
+</ul>
+</li>
+<li><a href="#sec-10">10. Environment</a>
+<ul>
+<li><a href="#sec-10-1">10.1. bye  \ &#x2013; (Atari specific)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> A and B registers</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+implemented based on "Updating the Forth Virtual Machine" by Stephen
+Pelc, MicroProcessor Engineering
+<a href="http://www.complang.tuwien.ac.at/anton/euroforth/ef08/papers/pelc.pdf">http://www.complang.tuwien.ac.at/anton/euroforth/ef08/papers/pelc.pdf</a>
+</p>
+
+<p>
+The A and B registers provide the source and destination address
+pointers used for block and string operations as well as providing
+scratch storage.
+</p>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> &gt;A  \ x --</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Writes to the A register.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> &gt;B  \ x --</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Writes to the B register.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> A&gt;  \ &#x2013; x</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Reads the A register.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> B&gt;  \ &#x2013; x</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Reads the B register.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> A@  \ &#x2013; x</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+Read the memory pointed to by the A register.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> A!  \ x --</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+Write the memory pointed to by the A register
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7"><span class="section-number-3">1.7</span> B@  \ &#x2013; x</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+Read the memory pointed to by the B register.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8"><span class="section-number-3">1.8</span> B!  \ x --</h3>
+<div class="outline-text-3" id="text-1-8">
+<p>
+Write the memory pointed to by the B register
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-9" class="outline-3">
+<h3 id="sec-1-9"><span class="section-number-3">1.9</span> A@+  \ &#x2013; x</h3>
+<div class="outline-text-3" id="text-1-9">
+<p>
+Read memory pointed to by A, increment A by one cell. A
+post-incremented read.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-10" class="outline-3">
+<h3 id="sec-1-10"><span class="section-number-3">1.10</span> B@+  \ &#x2013; x</h3>
+<div class="outline-text-3" id="text-1-10">
+<p>
+Read memory pointed to by B, increment B by one cell. A
+post-incremented read.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-11" class="outline-3">
+<h3 id="sec-1-11"><span class="section-number-3">1.11</span> A@-  \ &#x2013; x</h3>
+<div class="outline-text-3" id="text-1-11">
+<p>
+Read memory pointed to by A, decrement A by one cell. A
+post-decremented read.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-12" class="outline-3">
+<h3 id="sec-1-12"><span class="section-number-3">1.12</span> B@-  \ &#x2013; x</h3>
+<div class="outline-text-3" id="text-1-12">
+<p>
+Read memory pointed to by B, decrement B by one cell. A
+post-decremented read.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-13" class="outline-3">
+<h3 id="sec-1-13"><span class="section-number-3">1.13</span> A!+  \ x --</h3>
+<div class="outline-text-3" id="text-1-13">
+<p>
+Write to the memory pointed to by A, and update A.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-14" class="outline-3">
+<h3 id="sec-1-14"><span class="section-number-3">1.14</span> B!+  \ x --</h3>
+<div class="outline-text-3" id="text-1-14">
+<p>
+Write to the memory pointed to by B, and update B.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> X and Y registers.</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The X and Y registers provide indexed addressing. In Forth they can be
+used to implement the USER area and local frame pointers.
+</p>
+</div>
+
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> &gt;X  \ x --</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Writes to the X register.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> &gt;Y  \ x --</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Writes to the Y register.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> X&gt;  \ &#x2013; x</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Reads the X register.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> Y&gt;  \ &#x2013; x</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Reads the Y register.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> nX@  \ n &#x2013; x (currently not implemented in SPL)</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+Read the memory pointed to by the X register plus n (literal) address
+units.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6"><span class="section-number-3">2.6</span> nX!  \ x &#x2013; (currently not implemented in SPL)</h3>
+<div class="outline-text-3" id="text-2-6">
+<p>
+Write the memory pointed to by the X register plus n (literal) address
+units.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-7" class="outline-3">
+<h3 id="sec-2-7"><span class="section-number-3">2.7</span> nY@  \ &#x2013; x (currently not implemented in SPL)</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+Read the memory pointed to by the Y register plus n (literal) address
+units.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-8" class="outline-3">
+<h3 id="sec-2-8"><span class="section-number-3">2.8</span> nY!  \ x &#x2013; (currently not implemented in SPL)</h3>
+<div class="outline-text-3" id="text-2-8">
+<p>
+Write the memory pointed to by the Y register plus n (literal) address
+units
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 6502 subroutine calls</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> areg  \ 8b --</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+store the low 8bit from top of stack into ea (6502 A-Reg for "call"
+subroutine call)
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> call \ addr --</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+jump to subroutine at addr
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> bit manipulation</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> and  \ a b &#x2013; n</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+bitwise AND of the two topmost stack items
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> or   \ a b &#x2013; n</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+bitwise OR of the two topmost stack items
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> xor  \ a b &#x2013; n</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+bitwise XOR (exclusive OR) of the two topmost stack items
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> bclr \ n b &#x2013; n'</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+clear bit b of n
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-5" class="outline-3">
+<h3 id="sec-4-5"><span class="section-number-3">4.5</span> bset  \ n b &#x2013; n'</h3>
+<div class="outline-text-3" id="text-4-5">
+<p>
+set bit b of n
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-6" class="outline-3">
+<h3 id="sec-4-6"><span class="section-number-3">4.6</span> btest  \ n b &#x2013; 0|1</h3>
+<div class="outline-text-3" id="text-4-6">
+<p>
+test if bit b of n is set (ie, return the bit value)
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-7" class="outline-3">
+<h3 id="sec-4-7"><span class="section-number-3">4.7</span> ~ (comp) \ n - n'</h3>
+<div class="outline-text-3" id="text-4-7">
+<p>
+comp  -  flip the bits of the TOS
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Boolean logic</h2>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Arithmetics</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> abs  \ n &#x2013; n'</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+return the absolute value of the top of stack (TOS)
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-2" class="outline-3">
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> add  \ a b &#x2013; a+b</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+add the top of stack with next of stack
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-3" class="outline-3">
+<h3 id="sec-6-3"><span class="section-number-3">6.3</span> add1 \ (internal)</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+add 1 to the value in TA
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-4" class="outline-3">
+<h3 id="sec-6-4"><span class="section-number-3">6.4</span> +! (addstore) \ addr b --</h3>
+<div class="outline-text-3" id="text-6-4">
+<p>
+add b to the value pointed to be addr
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-5" class="outline-3">
+<h3 id="sec-6-5"><span class="section-number-3">6.5</span> ++ (incaddr)  \ addr --</h3>
+<div class="outline-text-3" id="text-6-5">
+<p>
+increment 16bit word at addr by 1
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6-6" class="outline-3">
+<h3 id="sec-6-6"><span class="section-number-3">6.6</span> c++ (inccaddr) \ addr --</h3>
+<div class="outline-text-3" id="text-6-6">
+<p>
+increment 8bit value at addr by 1
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Strings</h2>
+<div class="outline-text-2" id="text-7">
+</div><div id="outline-container-sec-7-1" class="outline-3">
+<h3 id="sec-7-1"><span class="section-number-3">7.1</span> 0trim \ addr len --</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+trim leading zeroes from string at addr and make it an counted string
+in PAD
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-7-2" class="outline-3">
+<h3 id="sec-7-2"><span class="section-number-3">7.2</span> accept  \ addr &#x2013; len (Apple II specific)</h3>
+<div class="outline-text-3" id="text-7-2">
+<p>
+get a line of text in the input buffer
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-7-3" class="outline-3">
+<h3 id="sec-7-3"><span class="section-number-3">7.3</span> &amp;. (ampdot)  \ addr d --</h3>
+<div class="outline-text-3" id="text-7-3">
+<p>
+convert 32bit number d into ASCII at addr addr must be at least 10
+bytes
+</p>
+</div>
+</div>
+<div id="outline-container-sec-7-4" class="outline-3">
+<h3 id="sec-7-4"><span class="section-number-3">7.4</span> tooutbuf \ n --</h3>
+<div class="outline-text-3" id="text-7-4">
+<p>
+converts text representation of n into outbuf
+</p>
+</div>
+</div>
+<div id="outline-container-sec-7-5" class="outline-3">
+<h3 id="sec-7-5"><span class="section-number-3">7.5</span> count  \ c-addr1 &#x2013; caddr2 u</h3>
+<div class="outline-text-3" id="text-7-5">
+<p>
+return the character string specification for the counted string
+stored in c-addr1. c-addr2 is the address of the first character after
+c-addr1. u is the content of the character at caddr1, which is the
+length in character of the string in c-addr2.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> Memory</h2>
+<div class="outline-text-2" id="text-8">
+</div><div id="outline-container-sec-8-1" class="outline-3">
+<h3 id="sec-8-1"><span class="section-number-3">8.1</span> @ (fetch)  \ addr &#x2013; n</h3>
+<div class="outline-text-3" id="text-8-1">
+<p>
+fetch 16bit value at addr onto top of stack
+</p>
+</div>
+</div>
+<div id="outline-container-sec-8-2" class="outline-3">
+<h3 id="sec-8-2"><span class="section-number-3">8.2</span> d@ (double-fetch) \ addr &#x2013; d</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+fetch a 32bit value at addr onto top of stack
+</p>
+</div>
+</div>
+<div id="outline-container-sec-8-3" class="outline-3">
+<h3 id="sec-8-3"><span class="section-number-3">8.3</span> c@ (char-fetch) \ addr &#x2013; c</h3>
+<div class="outline-text-3" id="text-8-3">
+<p>
+fetch a 8bit value at addr onto the top of stack
+</p>
+</div>
+</div>
+<div id="outline-container-sec-8-4" class="outline-3">
+<h3 id="sec-8-4"><span class="section-number-3">8.4</span> cmove  \   a b n --</h3>
+<div class="outline-text-3" id="text-8-4">
+<p>
+move n bytes from a to b
+</p>
+</div>
+</div>
+<div id="outline-container-sec-8-5" class="outline-3">
+<h3 id="sec-8-5"><span class="section-number-3">8.5</span> cmove&gt; \ a b n --</h3>
+<div class="outline-text-3" id="text-8-5">
+<p>
+move a range of bytes backwards, n bytes from a to b
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> Input/Output</h2>
+<div class="outline-text-2" id="text-9">
+</div><div id="outline-container-sec-9-1" class="outline-3">
+<h3 id="sec-9-1"><span class="section-number-3">9.1</span> at  \ y x --</h3>
+<div class="outline-text-3" id="text-9-1">
+<p>
+position cursor at location x and y
+</p>
+</div>
+</div>
+<div id="outline-container-sec-9-2" class="outline-3">
+<h3 id="sec-9-2"><span class="section-number-3">9.2</span> ch  \ n &#x2013; (Atari specific)</h3>
+<div class="outline-text-3" id="text-9-2">
+<p>
+set horizontal cursor position
+</p>
+</div>
+</div>
+<div id="outline-container-sec-9-3" class="outline-3">
+<h3 id="sec-9-3"><span class="section-number-3">9.3</span> cls \ &#x2013;  (Atari specific)</h3>
+<div class="outline-text-3" id="text-9-3">
+<p>
+clear screen and set cursor to home position
+</p>
+</div>
+</div>
+<div id="outline-container-sec-9-4" class="outline-3">
+<h3 id="sec-9-4"><span class="section-number-3">9.4</span> cr \ &#x2013;  (Atari specific)</h3>
+<div class="outline-text-3" id="text-9-4">
+<p>
+move to the next text line (send carriage return $9B)
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10"><span class="section-number-2">10</span> Environment</h2>
+<div class="outline-text-2" id="text-10">
+</div><div id="outline-container-sec-10-1" class="outline-3">
+<h3 id="sec-10-1"><span class="section-number-3">10.1</span> bye  \ &#x2013; (Atari specific)</h3>
+<div class="outline-text-3" id="text-10-1">
+<p>
+jump through DOS vector at $A to enter DOS
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Carsten Strotmann</p>
+<p class="date">Created: 2015-08-06 Thu 22:59</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.51.2 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
