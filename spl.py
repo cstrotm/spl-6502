@@ -93,6 +93,7 @@ EQUATES = {
 #  used to include only the routines necessary for the program being compiled.
 #
 DEPENDENCIES = {
+    "0trim"    : ["get_ta","pop"],
     "abs"      : ["get_ab","comp_tb","push"],
     "accept"   : ["get_ta","push"],
     "add1"     : [],
@@ -326,6 +327,7 @@ LIBRARYMAP = {
     "x>"       : "fromxreg",
     ">y"       : "toyreg",
     "y>"       : "fromyreg",
+    "0trim"    : "0trim",
     "abs"      : "abs",      
     "accept"   : "accept",  
     "+"        : "add",  

@@ -1,0 +1,16 @@
+# test for 0trim, trim leading zeros from
+# string and convert into counted string
+# located at PAD
+
+: main
+ "0trim test" disp cr
+ $600 0 0 &.     $600 10 0trim pad disp cr
+ $600 0 1 &.     $600 10 0trim pad disp cr
+ $600 0 1024 &.  $600 10 0trim pad disp cr
+ $600 1 0 &.     $600 10 0trim pad disp cr
+ $600 2 0 &.     $600 10 0trim pad disp cr
+ $600 100 0 &.   $600 10 0trim pad disp cr
+ $600 65535 0 &. $600 10 0trim pad disp cr
+ $600 $FFFF $FFFF &. $600 10 0trim pad disp cr
+ { }
+;

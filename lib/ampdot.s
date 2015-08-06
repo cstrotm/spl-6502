@@ -1,7 +1,7 @@
 ;****************************************
 ;  &. ampdot  -  convert 32bit number d
 ;                into ASCII at addr
-;                addr must be 8 bytes                
+;                addr must be 10 bytes                
 ;  ( addr d -- )
 ;
 ampdot
@@ -9,7 +9,7 @@ ampdot
         	jsr get_ta
                 lda #10
         	sta op2
-		ldy #7
+		ldy #9
 ampdot_1
                 sty op2+1
                 jsr div32
