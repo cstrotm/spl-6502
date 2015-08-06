@@ -93,7 +93,9 @@ units
 * 6502 subroutine calls
 ** areg  \ 8b --
 store the low 8bit from top of stack into ea (6502 A-Reg for "call"
-subroutine call
+subroutine call)
+** call \ addr --
+jump to subroutine at addr
 * bit manipulation
 ** and  \ a b -- n
 bitwise AND of the two topmost stack items
@@ -103,6 +105,13 @@ bitwise OR of the two topmost stack items
 bitwise XOR (exclusive OR) of the two topmost stack items
 ** bclr \ n b -- n'
 clear bit b of n
+** bset  \ n b -- n' 
+set bit b of n
+** btest  \ n b -- 0|1 
+test if bit b of n is set (ie, return the bit value)
+** ~ (comp) \ n - n'
+comp  -  flip the bits of the TOS
+
 * Boolean logic
 
 * Arithmetics
@@ -135,11 +144,35 @@ get a line of text in the input buffer
 **  &. (ampdot)  \ addr d --
 convert 32bit number d into ASCII at addr addr must be at least 10
 bytes
+** tooutbuf \ n -- 
+converts text representation of n into outbuf
+** count  \ c-addr1 -- caddr2 u 
+return the character string specification for the counted string
+stored in c-addr1. c-addr2 is the address of the first character after
+c-addr1. u is the content of the character at caddr1, which is the
+length in character of the string in c-addr2.
+
 * Memory
 ** @ (fetch)  \ addr -- n
 fetch 16bit value at addr onto top of stack
-
+** d@ (double-fetch) \ addr -- d
+fetch a 32bit value at addr onto top of stack
+** c@ (char-fetch) \ addr -- c
+fetch a 8bit value at addr onto the top of stack
+** cmove  \   a b n --
+move n bytes from a to b
+** cmove> \ a b n --
+move a range of bytes backwards, n bytes from a to b
 * Input/Output
 ** at  \ y x -- 
 position cursor at location x and y
+** ch  \ n -- (Atari specific)
+set horizontal cursor position
+**  cls \ --  (Atari specific)
+clear screen and set cursor to home position
+** cr \ --  (Atari specific)
+move to the next text line (send carriage return $9B)
 
+* Environment
+** bye  \ -- (Atari specific)
+jump through DOS vector at $A to enter DOS
