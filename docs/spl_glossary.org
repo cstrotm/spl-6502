@@ -111,19 +111,20 @@ set bit b of n
 test if bit b of n is set (ie, return the bit value)
 ** ~ (comp) \ n - n'
 comp  -  flip the bits of the TOS
-
+** ctoggle \  n addr -- 
+toggle bits in byte at given address
 * Boolean logic
 
 * Arithmetics
 ** abs  \ n -- n'
 return the absolute value of the top of stack (TOS)
-
-** add  \ a b -- a+b
+** dabs \ d -- d'
+return the absolute value of a 32bit value on TOS
+** + (add)  \ a b -- a+b
 add the top of stack with next of stack
 
-** add1 \ (internal)
-add 1 to the value in TA
-
+** d+ (dadd) \ d1 d2 -- d1+d2
+add two 32bit values on top of stack
 ** +! (addstore) \ addr b --
 add b to the value pointed to be addr
 
@@ -131,6 +132,8 @@ add b to the value pointed to be addr
 increment 16bit word at addr by 1
 ** c++ (inccaddr) \ addr --
 increment 8bit value at addr by 1
+** d/  \ d0 d1 -- d0/d1
+double precision division
 
 
 * Strings
@@ -145,7 +148,7 @@ get a line of text in the input buffer
 convert 32bit number d into ASCII at addr addr must be at least 10
 bytes
 ** tooutbuf \ n -- 
-converts text representation of n into outbuf
+   converts text representation of n into outbuf
 ** count  \ c-addr1 -- caddr2 u 
 return the character string specification for the counted string
 stored in c-addr1. c-addr2 is the address of the first character after
@@ -168,6 +171,8 @@ move a range of bytes backwards, n bytes from a to b
 position cursor at location x and y
 ** ch  \ n -- (Atari specific)
 set horizontal cursor position
+** cv  \ n --  (Atari specific)
+set vertical cursor position
 **  cls \ --  (Atari specific)
 clear screen and set cursor to home position
 ** cr \ --  (Atari specific)
@@ -176,3 +181,9 @@ move to the next text line (send carriage return $9B)
 * Environment
 ** bye  \ -- (Atari specific)
 jump through DOS vector at $A to enter DOS
+** crson \ -- (Atari specific)
+switch cursor on
+** crsoff \-- (Atari specific)
+switch cursor off
+** date \ -- dd mm yy (not implemented)
+return the current date from DOS

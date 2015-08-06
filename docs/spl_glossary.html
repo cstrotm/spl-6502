@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>SPL Glossary</title>
-<!-- 2015-08-06 Thu 22:59 -->
+<!-- 2015-08-06 Thu 23:10 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Carsten Strotmann" />
@@ -187,17 +187,20 @@ for the JavaScript code in this tag.
 <li><a href="#sec-4-5">4.5. bset  \ n b &#x2013; n'</a></li>
 <li><a href="#sec-4-6">4.6. btest  \ n b &#x2013; 0|1</a></li>
 <li><a href="#sec-4-7">4.7. ~ (comp) \ n - n'</a></li>
+<li><a href="#sec-4-8">4.8. ctoggle \  n addr --</a></li>
 </ul>
 </li>
 <li><a href="#sec-5">5. Boolean logic</a></li>
 <li><a href="#sec-6">6. Arithmetics</a>
 <ul>
 <li><a href="#sec-6-1">6.1. abs  \ n &#x2013; n'</a></li>
-<li><a href="#sec-6-2">6.2. add  \ a b &#x2013; a+b</a></li>
-<li><a href="#sec-6-3">6.3. add1 \ (internal)</a></li>
-<li><a href="#sec-6-4">6.4. +! (addstore) \ addr b --</a></li>
-<li><a href="#sec-6-5">6.5. ++ (incaddr)  \ addr --</a></li>
-<li><a href="#sec-6-6">6.6. c++ (inccaddr) \ addr --</a></li>
+<li><a href="#sec-6-2">6.2. dabs \ d &#x2013; d'</a></li>
+<li><a href="#sec-6-3">6.3. + (add)  \ a b &#x2013; a+b</a></li>
+<li><a href="#sec-6-4">6.4. d+ (dadd) \ d1 d2 &#x2013; d1+d2</a></li>
+<li><a href="#sec-6-5">6.5. +! (addstore) \ addr b --</a></li>
+<li><a href="#sec-6-6">6.6. ++ (incaddr)  \ addr --</a></li>
+<li><a href="#sec-6-7">6.7. c++ (inccaddr) \ addr --</a></li>
+<li><a href="#sec-6-8">6.8. d/  \ d0 d1 &#x2013; d0/d1</a></li>
 </ul>
 </li>
 <li><a href="#sec-7">7. Strings</a>
@@ -222,13 +225,17 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#sec-9-1">9.1. at  \ y x --</a></li>
 <li><a href="#sec-9-2">9.2. ch  \ n &#x2013; (Atari specific)</a></li>
-<li><a href="#sec-9-3">9.3. cls \ &#x2013;  (Atari specific)</a></li>
-<li><a href="#sec-9-4">9.4. cr \ &#x2013;  (Atari specific)</a></li>
+<li><a href="#sec-9-3">9.3. cv  \ n &#x2013;  (Atari specific)</a></li>
+<li><a href="#sec-9-4">9.4. cls \ &#x2013;  (Atari specific)</a></li>
+<li><a href="#sec-9-5">9.5. cr \ &#x2013;  (Atari specific)</a></li>
 </ul>
 </li>
 <li><a href="#sec-10">10. Environment</a>
 <ul>
 <li><a href="#sec-10-1">10.1. bye  \ &#x2013; (Atari specific)</a></li>
+<li><a href="#sec-10-2">10.2. crson \ &#x2013; (Atari specific)</a></li>
+<li><a href="#sec-10-3">10.3. crsoff &#x00ad;- (Atari specific)</a></li>
+<li><a href="#sec-10-4">10.4. date \ &#x2013; dd mm yy (not implemented)</a></li>
 </ul>
 </li>
 </ul>
@@ -548,8 +555,15 @@ comp  -  flip the bits of the TOS
 </p>
 </div>
 </div>
+<div id="outline-container-sec-4-8" class="outline-3">
+<h3 id="sec-4-8"><span class="section-number-3">4.8</span> ctoggle \  n addr --</h3>
+<div class="outline-text-3" id="text-4-8">
+<p>
+toggle bits in byte at given address
+</p>
 </div>
-
+</div>
+</div>
 <div id="outline-container-sec-5" class="outline-2">
 <h2 id="sec-5"><span class="section-number-2">5</span> Boolean logic</h2>
 </div>
@@ -565,47 +579,61 @@ return the absolute value of the top of stack (TOS)
 </p>
 </div>
 </div>
-
 <div id="outline-container-sec-6-2" class="outline-3">
-<h3 id="sec-6-2"><span class="section-number-3">6.2</span> add  \ a b &#x2013; a+b</h3>
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> dabs \ d &#x2013; d'</h3>
 <div class="outline-text-3" id="text-6-2">
+<p>
+return the absolute value of a 32bit value on TOS
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6-3" class="outline-3">
+<h3 id="sec-6-3"><span class="section-number-3">6.3</span> + (add)  \ a b &#x2013; a+b</h3>
+<div class="outline-text-3" id="text-6-3">
 <p>
 add the top of stack with next of stack
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-6-3" class="outline-3">
-<h3 id="sec-6-3"><span class="section-number-3">6.3</span> add1 \ (internal)</h3>
-<div class="outline-text-3" id="text-6-3">
+<div id="outline-container-sec-6-4" class="outline-3">
+<h3 id="sec-6-4"><span class="section-number-3">6.4</span> d+ (dadd) \ d1 d2 &#x2013; d1+d2</h3>
+<div class="outline-text-3" id="text-6-4">
 <p>
-add 1 to the value in TA
+add two 32bit values on top of stack
 </p>
 </div>
 </div>
-
-<div id="outline-container-sec-6-4" class="outline-3">
-<h3 id="sec-6-4"><span class="section-number-3">6.4</span> +! (addstore) \ addr b --</h3>
-<div class="outline-text-3" id="text-6-4">
+<div id="outline-container-sec-6-5" class="outline-3">
+<h3 id="sec-6-5"><span class="section-number-3">6.5</span> +! (addstore) \ addr b --</h3>
+<div class="outline-text-3" id="text-6-5">
 <p>
 add b to the value pointed to be addr
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-6-5" class="outline-3">
-<h3 id="sec-6-5"><span class="section-number-3">6.5</span> ++ (incaddr)  \ addr --</h3>
-<div class="outline-text-3" id="text-6-5">
+<div id="outline-container-sec-6-6" class="outline-3">
+<h3 id="sec-6-6"><span class="section-number-3">6.6</span> ++ (incaddr)  \ addr --</h3>
+<div class="outline-text-3" id="text-6-6">
 <p>
 increment 16bit word at addr by 1
 </p>
 </div>
 </div>
-<div id="outline-container-sec-6-6" class="outline-3">
-<h3 id="sec-6-6"><span class="section-number-3">6.6</span> c++ (inccaddr) \ addr --</h3>
-<div class="outline-text-3" id="text-6-6">
+<div id="outline-container-sec-6-7" class="outline-3">
+<h3 id="sec-6-7"><span class="section-number-3">6.7</span> c++ (inccaddr) \ addr --</h3>
+<div class="outline-text-3" id="text-6-7">
 <p>
 increment 8bit value at addr by 1
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6-8" class="outline-3">
+<h3 id="sec-6-8"><span class="section-number-3">6.8</span> d/  \ d0 d1 &#x2013; d0/d1</h3>
+<div class="outline-text-3" id="text-6-8">
+<p>
+double precision division
 </p>
 </div>
 </div>
@@ -728,16 +756,24 @@ set horizontal cursor position
 </div>
 </div>
 <div id="outline-container-sec-9-3" class="outline-3">
-<h3 id="sec-9-3"><span class="section-number-3">9.3</span> cls \ &#x2013;  (Atari specific)</h3>
+<h3 id="sec-9-3"><span class="section-number-3">9.3</span> cv  \ n &#x2013;  (Atari specific)</h3>
 <div class="outline-text-3" id="text-9-3">
+<p>
+set vertical cursor position
+</p>
+</div>
+</div>
+<div id="outline-container-sec-9-4" class="outline-3">
+<h3 id="sec-9-4"><span class="section-number-3">9.4</span> cls \ &#x2013;  (Atari specific)</h3>
+<div class="outline-text-3" id="text-9-4">
 <p>
 clear screen and set cursor to home position
 </p>
 </div>
 </div>
-<div id="outline-container-sec-9-4" class="outline-3">
-<h3 id="sec-9-4"><span class="section-number-3">9.4</span> cr \ &#x2013;  (Atari specific)</h3>
-<div class="outline-text-3" id="text-9-4">
+<div id="outline-container-sec-9-5" class="outline-3">
+<h3 id="sec-9-5"><span class="section-number-3">9.5</span> cr \ &#x2013;  (Atari specific)</h3>
+<div class="outline-text-3" id="text-9-5">
 <p>
 move to the next text line (send carriage return $9B)
 </p>
@@ -756,11 +792,35 @@ jump through DOS vector at $A to enter DOS
 </p>
 </div>
 </div>
+<div id="outline-container-sec-10-2" class="outline-3">
+<h3 id="sec-10-2"><span class="section-number-3">10.2</span> crson \ &#x2013; (Atari specific)</h3>
+<div class="outline-text-3" id="text-10-2">
+<p>
+switch cursor on
+</p>
+</div>
+</div>
+<div id="outline-container-sec-10-3" class="outline-3">
+<h3 id="sec-10-3"><span class="section-number-3">10.3</span> crsoff &#x00ad;- (Atari specific)</h3>
+<div class="outline-text-3" id="text-10-3">
+<p>
+switch cursor off
+</p>
+</div>
+</div>
+<div id="outline-container-sec-10-4" class="outline-3">
+<h3 id="sec-10-4"><span class="section-number-3">10.4</span> date \ &#x2013; dd mm yy (not implemented)</h3>
+<div class="outline-text-3" id="text-10-4">
+<p>
+return the current date from DOS
+</p>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Carsten Strotmann</p>
-<p class="date">Created: 2015-08-06 Thu 22:59</p>
+<p class="date">Created: 2015-08-06 Thu 23:10</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.51.2 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
